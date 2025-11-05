@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page Title -->
+    <title>CocoBanana Studio - Your AI Creative Hub</title>
+    
+    <!-- Page Description -->
+    <meta name="description" content="Transform photos, generate art from text, and create unique Photo Stories. All powered by AI.">
+    
+    <!-- Favicon (from your uploaded app_icon.jpg) -->
+    <link rel="icon" href="app_icon.jpg" type="image/jpeg">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons (for feature icons) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Set default font and dark theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* bg-slate-900 */
+            color: #f1f5f9; /* text-slate-100 */
+        }
+        /* Custom accent color from your app theme */
+        .text-banana { color: #FFD13D; }
+        .bg-banana { background-color: #FFD13D; }
+        .border-banana { border-color: #FFD13D; }
+        
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Helper for the mock phone frame */
+        .phone-frame {
+            background: #1a1a1a;
+            border: 8px solid #4a4a4a;
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+        }
+        .phone-frame img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Navigation -->
+    <header class="absolute top-0 left-0 right-0 z-10 py-5">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2">
+                <img src="app_icon.jpg" alt="CocoBanana App Icon" class="w-10 h-10 rounded-lg">
+                <span class="text-xl font-bold text-white">CocoBanana Studio</span>
+            </a>
+            <!-- CTA Button -->
+            <a href="[YOUR_APP_STORE_LINK_HERE]" target="_blank" class="bg-banana text-black font-semibold py-2 px-5 rounded-full text-sm hover:opacity-90 transition-opacity">
+                Get the App
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="pt-32 pb-20 md:pt-48 md:pb-28 overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                
+                <!-- Hero Text -->
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
+                        <span class="text-banana">🍌</span> CocoBanana Studio
+                    </h1>
+                    <p class="mt-4 text-2xl md:text-3xl font-medium text-banana">Your AI Creative Hub.</p>
+                    <p class="mt-6 text-lg md:text-xl text-slate-300 max-w-lg mx-auto md:mx-0">
+                        Transform photos, generate art from text, and create unique Photo Stories. All powered by AI.
+                    </p>
+                    <div class="mt-10 flex justify-center md:justify-start">
+                        <!-- App Store Badge -->
+                        <a href="[YOUR_APP_STORE_LINK_HERE]" target="_blank" title="Download on the App Store">
+                            <svg class="w-40 h-auto" fill="currentColor" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.835 100C4.851 100 0 95.149 0 89.165V10.835C0 4.851 4.851 0 10.835 0H289.165C295.149 0 300 4.851 300 10.835V89.165C300 95.149 295.149 100 289.165 100H10.835ZM112.553 40.854C108.966 37.13 103.951 34.61 97.518 34.61C87.409 34.61 78.89 40.563 74.342 48.74C69.75 56.97 68.314 67.872 72.809 76.05C76.077 82.263 81.35 85.584 87.525 85.584C91.165 85.584 94.619 84.423 97.465 82.15C97.57 82.044 97.674 81.939 97.779 81.834C100.834 79.313 102.576 75.939 102.576 72.164C102.576 66.351 98.498 63.882 93.38 61.308C88.209 58.734 85.253 57.042 85.253 53.668C85.253 51.041 87.618 48.971 91.205 48.971C94.792 48.971 97.412 50.407 100.032 52.876L102.397 50.605C104.709 48.441 108.583 46.12 113.131 46.12C123.187 46.12 131.551 51.986 131.551 60.166C131.551 68.45 125.791 73.149 119.509 76.709C115.158 79.178 112.538 80.667 112.538 83.988C112.538 86.824 114.903 88.894 118.677 88.894C122.211 88.894 125.426 87.202 128.046 84.733L125.734 82.462C123.114 80.046 119.718 77.882 115.061 77.882C108.239 77.882 104.97 81.36 108.861 86.64C111.48 90.253 115.83 92.417 121.006 92.417C127.391 92.417 132.353 89.896 135.568 85.959C139.799 80.783 140.758 72.923 137.224 65.636C132.873 56.653 124.664 51.424 115.83 51.424C111.229 51.424 107.455 52.69 104.835 54.961L107.094 57.232C109.661 59.544 113.167 61.661 118.278 64.235C123.449 66.809 126.353 68.448 126.353 71.977C126.353 74.604 124.094 76.721 120.373 76.721C1Boolean(config.iap.bananaSubscriptions as Record<string, number>)[productId];
+  if (typeof finalAmount !== "number" || !Number.isFinite(finalAmount) || finalAmount <= 0) {
+    await transactionRef.update({status: "failed", error: `Invalid productId: ${productId}`});
+    throw new HttpsError("invalid-argument", `The provided productId '${productId}' is not valid.`);
+  }
+
+  // --- GRANT CURRENCY AND FINALIZE TRANSACTION ---
+  let newBalance: number | undefined;
+
+  try {
+    await transactionRef.update({status: "granting"});
+    await admin.firestore().runTransaction(async (tx) => {
+      const userSnap = await tx.get(userRef);
+      if (!userSnap.exists) throw new HttpsError("not-found", "User profile not found.");
+
+      await grantCurrency(tx, uid, finalAmount, `iap:${platform}`);
+
+      const finalTransactionData: Record<string, any> = {
+        status: "success",
+        amount: finalAmount,
+        processedAt: admin.firestore.FieldValue.serverTimestamp(),
+        originalTransactionId: validatedPurchaseData?.originalTransactionId || validatedPurchaseData?.transactionId,
+      };
+
+      if (isSubscription) {
+        const expiryDateMs = validatedPurchaseData?.expirationDate;
+        if (expiryDateMs) {
+          const expiryDate = new Date(expiryDateMs);
+          tx.update(userRef, {
+            subscriptionStatus: "active",
+            subscriptionId: productId,
+            subscriptionExpiryDate: admin.firestore.Timestamp.fromDate(expiryDate),
+            originalTransactionId: validatedPurchaseData?.originalTransactionId || validatedPurchaseData?.transactionId,
+          });
+          finalTransactionData.subscriptionExpiry = admin.firestore.Timestamp.fromDate(expiryDate);
+        } else {
+          logger.warn(`Subscription purchase for ${productId} is missing an expiration date.`);
+        }
+      }
+
+      tx.update(transactionRef, finalTransactionData);
+
+      const prevBalance = Number(userSnap.data()?.bananaBalance || 0);
+      newBalance = prevBalance + finalAmount;
+    });
+  } catch (error) {
+    logger.error(`Failed to grant currency for transaction ${transactionId}`, error);
+    await transactionRef.update({status: "failed", error: "Failed to grant currency."});
+    if (error instanceof HttpsError) throw error;
+    throw new HttpsError("internal", "An error occurred while granting your reward.");
+  }
+
+  return {success: true, granted: finalAmount, newBalance};
+});
+
+}
+
+{
+type: uploaded file
+fileName: src/users.ts
+fullText:
+// functions/src/users.ts
+import {beforeUserCreated, beforeUserSignedIn, type AuthBlockingEvent} from "firebase-functions/v2/identity";
+import {logger} from "firebase-functions";
+import {initializeApp} from "firebase-admin/app";
+import {getFirestore, FieldValue, Timestamp} from "firebase-admin/firestore";
+import {onCall, HttpsError} from "firebase-functions/v2/https";
+
+initializeApp();
+
+// Helper to get the offer expiration date (e.g., 24 hours from now)
+const getOfferExpiry = (): Timestamp => {
+  const now = new Date();
+  const tomorrow = new Date(now.getTime() + (24 * 60 * 60 * 1000));
+  return Timestamp.fromDate(tomorrow);
+};
+
+export const ensureUserDoc = beforeUserCreated(
+  {region: "us-central1", timeoutSeconds: 60, memory: "256MiB"},
+  async (event: AuthBlockingEvent) => {
+    const data = event.data;
+    if (!data) {
+      logger.warn("beforeUserCreated: event.data is undefined (unexpected).");
+      return;
+    }
+
+    const {uid, displayName, email} = data;
+    const db = getFirestore();
+    const userRef = db.collection("users").doc(uid);
+
+    const newUserProfile = {
+      username: displayName || `User-${uid.substring(0, 5)}`,
+      email: email ?? "",
+      bananaBalance: 0, // MODIFIED: Start with 0 bananas
+      dailyStreak: 1,
+      lastLogin: FieldValue.serverTimestamp(),
+      subscriptionStatus: "Free",
+      createdAt: FieldValue.serverTimestamp(),
+      pastCreations: [] as string[],
+      // --- ADDED FOR PROPOSAL 3 ---
+      hasMadePurchase: false,
+      offerValidUntil: getOfferExpiry(),
+      unlockedStyles: [] as string[], // To grant exclusive content
+    };
+
+    await userRef.set(newUserProfile, {merge: true});
+    logger.info(`(blocking) prepared user profile for UID: ${uid}`);
+    return {customClaims: {role: "member"}};
+  }
+);
+
+export const ensureUserDocOnSignin = beforeUserSignedIn(
+  {region: "us-central1", timeoutSeconds: 60, memory: "256MiB"},
+  async (event: AuthBlockingEvent) => {
+    const data = event.data;
+    if (!data) {
+      logger.warn("beforeUserSignedIn: event.data is undefined (unexpected).");
+      return;
+    }
+
+    const {uid, displayName, email} = data;
+    const db = getFirestore();
+    const userRef = db.collection("users").doc(uid);
+    const snap = await userRef.get();
+
+    if (!snap.exists) {
+      const newUserProfile = {
+        username: displayName || `User-${uid.substring(0, 5)}`,
+        email: email ?? "",
+        bananaBalance: 0, // MODIFIED: Start with 0 bananas
+        dailyStreak: 1,
+        lastLogin: FieldValue.serverTimestamp(),
+        subscriptionStatus: "Free",
+        createdAt: FieldValue.serverTimestamp(),
+        pastCreations: [] as string[],
+        // --- ADDED FOR PROPOSAL 3 ---
+        hasMadePurchase: false,
+        offerValidUntil: getOfferExpiry(),
+        unlockedStyles: [] as string[],
+      };
+      await userRef.set(newUserProfile, {merge: true});
+      logger.info(`(blocking) created missing user profile for UID: ${uid} on sign-in`);
+    } else {
+      // Increment/reset daily streak based on last login date, and update lastLogin.
+      try {
+        const data = snap.data() as any;
+        const lastLoginTs = data?.lastLogin as Timestamp | undefined;
+        const today = new Date();
+        const todayDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+        const updates: Record<string, any> = {lastLogin: FieldValue.serverTimestamp()};
+        if (!lastLoginTs) {
+          updates.dailyStreak = 1;
+        } else {
+          const last = lastLoginTs.toDate();
+          const lastDate = new Date(last.getFullYear(), last.getMonth(), last.getDate());
+          const diffDays = Math.round((todayDate.getTime() - lastDate.getTime()) / 86400000);
+          if (diffDays === 1) {
+            updates.dailyStreak = FieldValue.increment(1);
+          } else if (diffDays > 1) {
+            updates.dailyStreak = 1;
+          }
+        }
+        await userRef.set(updates, {merge: true});
+        logger.info(`(blocking) updated lastLogin/streak for UID: ${uid}`);
+      } catch (e) {
+        logger.warn(`(blocking) failed to update streak for ${uid}`, e);
+        await userRef.set({lastLogin: FieldValue.serverTimestamp()}, {merge: true});
+      }
+    }
+    return;
+  }
+);
+
+export const updateUsername = onCall(async (request) => {
+  if (!request.auth) {
+    throw new HttpsError("unauthenticated", "You must be authenticated to update your profile.");
+  }
+  const newUsername = request.data.username;
+  if (!newUsername || typeof newUsername !== "string" || newUsername.length < 3 || newUsername.length > 20) {
+    throw new HttpsError("invalid-argument", "Username must be between 3 and 20 characters.");
+  }
+  const uid = request.auth.uid;
+  const userRef = getFirestore().collection("users").doc(uid);
+  try {
+    await userRef.update({username: newUsername});
+    logger.info(`User ${uid} successfully updated their username to ${newUsername}.`);
+    return {success: true, message: "Username updated successfully."};
+  } catch (error) {
+    logger.error(`Error updating username for user ${uid}:`, error);
+    throw new HttpsError("internal", "An error occurred while updating your profile.");
+  }
+});
+
+}
+
+{
+type: uploaded file
+fileName: lib/features/auth/login_screen.dart
+fullText:
+// lib/features/auth/login_screen.dart
+import 'package:coco_banana_studio/core/router.dart';
+import 'package:flutter/material.dart';
+import 'dart:io' show Platform;
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:coco_banana_studio/ui/tokens.dart';
+
+import 'package:coco_banana_studio/features/auth/login_view_model.dart';
+import 'package:coco_banana_studio/core/theme.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:coco_banana_studio/core/services/analytics_service.dart';
+import 'package:coco_banana_studio/l10n/app_localizations.dart';
+
+class LoginScreen extends ConsumerStatefulWidget {
+  const LoginScreen({super.key});
+
+  @override
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends ConsumerState<LoginScreen> {
+  bool _didClose = false;
+
+  @override
+  void initState() {
+    super.initState();
+    // This listener is the key to the automatic navigation flow.
+    // It reacts to global auth state changes, making the UI declarative.
+    ref.listen(authStateChangesProvider, (previousState, newState) {
+      // Guard against acting on a disposed widget or running multiple times.
+      if (!mounted || _didClose) return;
+
+      final user = newState.value;
+      
+      // The condition to proceed: user is fully signed in (not null and not a guest).
+      if (user != null && user.isAnonymous != true) {
+        _didClose = true; // Prevent multiple navigations.
+        
+        // If the login screen can be popped (i.e., it wasn't the first screen),
+        // then pop it to return to the previous screen.
+        if (Navigator.of(context).canPop()) {
+          Navigator.of(context).pop();
+        } else {
+          // Otherwise, go to the home screen as a fallback.
+          context.go('/home');
+        }
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final ref = this.ref;
+    final l10n = AppLocalizations.of(context)!;
+
+    final formKey = GlobalKey<FormState>();
+    final emailController = TextEditingController();
+    final passwordController = TextEditingController();
+    final isLoading = ref.watch(loginViewModelProvider);
+
+    Future<void> showSignUpDialog() async {
+      final signupEmail = TextEditingController(text: emailController.text.trim());
+      final signupPassword = TextEditingController(text: passwordController.text.trim());
+      final formKey = GlobalKey<FormState>();
+      await showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text(l10n.createAccountCta),
+          content: Form(
+            key: formKey,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextFormField(
+                  controller: signupEmail,
+                  decoration: const InputDecoration(labelText: 'Email'),
+                  keyboardType: TextInputType.emailAddress,
+                  validator: (v) => (v == null || !v.contains('@')) ? 'Please enter a valid email' : null,
+                ),
+                const SizedBox(height: 12),
+                TextFormField(
+                  controller: signupPassword,
+                  decoration: const InputDecoration(labelText: 'Password'),
+                  obscureText: true,
+                  validator: (v) => (v == null || v.length < 6) ? 'Password must be at least 6 characters' : null,
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(onPressed: () => Navigator.pop(ctx), child: Text(l10n.cancelCta)),
+            FilledButton(
+              onPressed: () async {
+                if (!(formKey.currentState?.validate() ?? false)) return;
+                await ref.read(loginViewModelProvider.notifier)
+                    .signUpWithEmailPassword(context, signupEmail.text.trim(), signupPassword.text.trim());
+                if (context.mounted) Navigator.pop(ctx);
+              },
+              child: Text(l10n.createAccountCta),
+            )
+          ],
+        ),
+      );
+    }
+
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(l10n.signInContinueTitle),
+        leading: Navigator.of(context).canPop()
+            ? IconButton(
+                icon: const Icon(Icons.arrow_back_ios_new),
+                onPressed: () => context.pop(),
+              )
+            : IconButton(
+                icon: const Icon(Icons.close),
+                onPressed: () => context.go('/home'),
+              ),
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(AppSpacing.xl),
+        child: Form(
+          key: formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(height: AppSpacing.xl * 2),
+              Text('🍌', textAlign: TextAlign.center, style: Theme.of(context).textTheme.displayLarge?.copyWith(fontSize: 80)),
+              const SizedBox(height: AppSpacing.sm),
+              Text(
+                l10n.loginWelcomeTitle,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.displayLarge,
+              ),
+              const SizedBox(height: AppSpacing.lg),
+
+              TextFormField(
+                controller: emailController,
+                decoration: InputDecoration(labelText: l10n.emailLabel, border: const OutlineInputBorder()),
+                keyboardType: TextInputType.emailAddress,
+                validator: (value) => (value == null || !value.contains('@')) ? l10n.emailInvalid : null,
+              ),
+              const SizedBox(height: AppSpacing.sm),
+              TextFormField(
+                controller: passwordController,
+                decoration: InputDecoration(labelText: l10n.passwordLabel, border: const OutlineInputBorder()),
+                obscureText: true,
+                validator: (value) => (value == null || value.length < 6) ? l10n.passwordTooShort : null,
+              ),
+              const SizedBox(height: AppSpacing.md),
+
+              ElevatedButton(
+                onPressed: isLoading
+                    ? null
+                    : () async {
+                        final valid = formKey.currentState?.validate() ?? false;
+                        if (valid) {
+                          await ref.read(loginViewModelProvider.notifier).submitEmailPassword(
+                                context,
+                                emailController.text.trim(),
+                                passwordController.text.trim(),
+                              );
+                        }
+                      },
+                style: ElevatedButton.styleFrom(minimumSize: const Size(double.infinity, 50)),
+                child: isLoading
+                    ? const CircularProgressIndicator(color: Colors.white)
+                    : Text(l10n.loginCta),
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: isLoading
+                      ? null
+                      : () async {
+                          final controller = TextEditingController(text: emailController.text.trim());
+                          await showDialog(
+                            context: context,
+                            builder: (ctx) => AlertDialog(
+                              title: Text(l10n.resetPasswordTitle),
+                              content: TextField(
+                                controller: controller,
+                                decoration: InputDecoration(hintText: l10n.emailLabel),
+                                keyboardType: TextInputType.emailAddress,
+                              ),
+                              actions: [
+                                TextButton(onPressed: () => Navigator.pop(ctx), child: Text(l10n.cancelCta)),
+                                FilledButton(
+                                  onPressed: () async {
+                                    final email = controller.text.trim();
+                                    if (email.isNotEmpty) {
+                                      await ref.read(loginViewModelProvider.notifier).sendPasswordResetEmail(context, email);
+                                    }
+                                    if (context.mounted) Navigator.pop(ctx);
+                                  },
+                                  child: Text(l10n.sendCta),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                  child: Text(l10n.forgotPasswordCta),
+                ),
+              ),
+              const SizedBox(height: 24),
+              Row(
+                children: [
+                  const Expanded(child: Divider()),
+                  Padding(padding: const EdgeInsets.symmetric(horizontal: 8), child: Text(l10n.orSeparator)),
+                  const Expanded(child: Divider()),
+                ],
+              ),
+              const SizedBox(height: AppSpacing.lg),
+
+              ElevatedButton.icon(
+                icon: FaIcon(FontAwesomeIcons.google, size: 18, color: Colors.red.shade600),
+                label: Text(l10n.continueWithGoogle),
+                onPressed: isLoading
+                    ? null
+                    : () async {
+                        await ref.read(loginViewModelProvider.notifier).signInWithGoogle(context);
+                        await ref.read(analyticsServiceProvider).logAuthSuccess(method: 'google');
+                      },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: AppTheme.primaryTextColor,
+                  minimumSize: const Size(double.infinity, 50),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  elevation: 1,
+                ),
+              ),
+              if (Platform.isIOS) ...[
+                const SizedBox(height: AppSpacing.sm),
+                ElevatedButton.icon(
+                  icon: const FaIcon(FontAwesomeIcons.apple, size: 20, color: Colors.white),
+                  label: Text(l10n.continueWithApple),
+                  onPressed: isLoading
+                      ? null
+                      : () async {
+                          await ref.read(loginViewModelProvider.notifier).signInWithApple(context);
+                          await ref.read(analyticsServiceProvider).logAuthSuccess(method: 'apple');
+                        },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    foregroundColor: Colors.white,
+                    minimumSize: const Size(double.infinity, 50),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    elevation: 1,
+                  ),
+                ),
+              ],
+              const SizedBox(height: AppSpacing.lg),
+              TextButton(
+                onPressed: isLoading ? null : showSignUpDialog,
+                child: Text(l10n.createAccountCta),
+              ),
+              TextButton(onPressed: () => context.push('/privacy-policy'), child: Text(l10n.privacyCta)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+}
+
+{
+type: uploaded file
+fileName: lib/domain/usecases/auth/sign_in_with_email_password_use_case.dart
+fullText:
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:coco_banana_studio/domain/repositories/auth_repository.dart';
+import 'package:coco_banana_studio/data/repositories/auth_repository_impl.dart';
+
+class SignInWithEmailPasswordUseCase {
+  final AuthRepository _authRepository;
+
+  SignInWithEmailPasswordUseCase(this._authRepository);
+
+  Future<void> call(String email, String password) async {
+    // Replace the UnimplementedError with this call
+    await _authRepository.signInWithEmailPassword(email, password);
+  }
+}
+
+final signInWithEmailPasswordUseCaseProvider = Provider<SignInWithEmailPasswordUseCase>((ref) {
+  final authRepository = ref.watch(authRepositoryProvider);
+  return SignInWithEmailPasswordUseCase(authRepository);
+});
+
+}
+
+{
+type: uploaded file
+fileName: lib/core/security/notification_payload_codec.dart
+fullText:
+import 'dart:convert';
+import 'dart:io';
+import 'dart:typed_data';
+
+const _payloadTypeKey = '__coco_type';
+const _payloadBytesType = 'bytes';
+const _payloadFileType = 'file';
+
+class NotificationPayloadCodec {
+  const NotificationPayloadCodec._();
+
+  static Map<String, dynamic> encode(Map<String, dynamic> payload) {
+    final encoded = <String, dynamic>{};
+    payload.forEach((key, value) {
+      encoded[key] = _encodeValue(value);
+    });
+    return encoded;
+  }
+
+  static Map<String, dynamic> decode(Map<String, dynamic> payload) {
+    final decoded = <String, dynamic>{};
+    payload.forEach((key, value) {
+      decoded[key] = _decodeValue(value);
+    });
+    return decoded;
+  }
+
+  static dynamic _encodeValue(dynamic value) {
+    if (value is Uint8List) {
+      return {_payloadTypeKey: _payloadBytesType, 'data': base64Encode(value)};
+    }
+    if (value is File) {
+      return {_payloadTypeKey: _payloadFileType, 'path': value.path};
+    }
+    if (value is List) {
+      return value.map(_encodeValue).toList();
+    }
+    if (value is Map<String, dynamic>) {
+      return encode(value);
+    }
+    return value;
+  }
+
+  static dynamic _decodeValue(dynamic value) {
+    if (value is Map<String, dynamic>) {
+      final type = value[_payloadTypeKey];
+      if (type == _payloadBytesType) {
+        final data = value['data'] as String?;
+        if (data == null) {
+          return null;
+        }
+        return base64Decode(data);
+      }
+      if (type == _payloadFileType) {
+        final path = value['path'] as String?;
+        if (path == null || path.isEmpty) {
+          return null;
+        }
+        return File(path);
+      }
+      return decode(value);
+    }
+    if (value is List) {
+      final decodedList = value
+          .map(_decodeValue)
+          .where((element) => element != null)
+          .toList();
+      if (decodedList.isEmpty) {
+        return decodedList;
+      }
+      final first = decodedList.first;
+      if (first is File && decodedList.every((element) => element is File)) {
+        return decodedList.cast<File>();
+      }
+      if (first is Uint8List && decodedList.every((element) => element is Uint8List)) {
+        return decodedList.cast<Uint8List>();
+      }
+      return decodedList;
+    }
+    return value;
+  }
+}
+
+}
+
+{
+type: uploaded file
+fileName: lib/ui/before_after_scrubber.dart
+fullText:
+// lib/ui/before_after_scrubber.dart
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:flutter/foundation.dart';
+import 'package:coco_banana_studio/l10n/app_localizations.dart';
+
+class BeforeAfterScrubber extends StatefulWidget {
+  final ImageProvider before;
+  final ImageProvider after;
+  final double height;
+  final bool holdToCompare;
+  final BorderRadiusGeometry borderRadius;
+  final BoxFit fit;
+  final AlignmentGeometry alignment;
+  final Color? backgroundColor;
+
+  const BeforeAfterScrubber({
+    super.key,
+    required this.before,
+    required this.after,
+    this.height = 180,
+    this.holdToCompare = true,
+    this.borderRadius = const BorderRadius.all(Radius.circular(16)),
+    this.fit = BoxFit.cover,
+    this.alignment = Alignment.center,
+    this.backgroundColor,
+  });
+
+  @override
+  State<BeforeAfterScrubber> createState() => _BeforeAfterScrubberState();
+}
+
+class _BeforeAfterScrubberState extends State<BeforeAfterScrubber> {
+  bool _showBefore = false;
+  bool _showHint = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _maybeShowHint();
+  }
+
+  Future<void> _maybeShowHint() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      // Backward compatibility with previous boolean flag
+      final prevSeen = prefs.getBool('before_after_hint_seen') ?? false;
+
+      final info = await PackageInfo.fromPlatform();
+      final currentVersion = info.version;
+      final lastVersion = prefs.getString('before_after_hint_version') ?? '';
+      final lastTs = prefs.getInt('before_after_hint_last_ts') ?? 0;
+      final last = DateTime.fromMillisecondsSinceEpoch(lastTs, isUtc: false);
+      final days = DateTime.now().difference(last).inDays;
+
+      final shouldShow = !prevSeen || (lastVersion != currentVersion) || (days >= 30);
+      if (shouldShow && mounted) {
+        setState(() => _showHint = true);
+        await Future.delayed(const Duration(seconds: 4));
+        if (mounted) setState(() => _showHint = false);
+        await prefs.setString('before_after_hint_version', currentVersion);
+        await prefs.setInt('before_after_hint_last_ts', DateTime.now().millisecondsSinceEpoch);
+        await prefs.setBool('before_after_hint_seen', true);
+      }
+    } catch (e) {
+      // This is a non-critical feature, so we just log the error in debug mode
+      // and don't bother the user with an error message.
+      debugPrint("Error in _maybeShowHint: $e");
+    }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    return Semantics(
+      label: 'Style demo',
+      hint: widget.holdToCompare ? l10n.beforeAfterLongPressHint : '',
+      child: GestureDetector(
+        onLongPressStart: widget.holdToCompare
+            ? (_) async {
+                setState(() {
+                  _showBefore = true;
+                  _showHint = false;
+                });
+                try {
+                  final prefs = await SharedPreferences.getInstance();
+                  final info = await PackageInfo.fromPlatform();
+                  await prefs.setString('before_after_hint_version', info.version);
+                  await prefs.setInt('before_after_hint_last_ts', DateTime.now().millisecondsSinceEpoch);
+                  await prefs.setBool('before_after_hint_seen', true);
+                } catch (e) {
+                  debugPrint("Error updating hint seen status: $e");
+                }
+              }
+            : null,
+        onLongPressEnd: widget.holdToCompare ? (_) => setState(() => _showBefore = false) : null,
+        child: ClipRRect(
+          borderRadius: widget.borderRadius,
+          child: SizedBox(
+            height: widget.height,
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                if (widget.backgroundColor != null)
+                  Container(color: widget.backgroundColor),
+                AnimatedCrossFade(
+                  firstChild: Image(image: widget.after, fit: widget.fit, alignment: widget.alignment),
+                  secondChild: Image(image: widget.before, fit: widget.fit, alignment: widget.alignment),
+                  crossFadeState: _showBefore ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+                  duration: const Duration(milliseconds: 180),
+                ),
+                // One-time hint overlay
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: 8,
+                  child: AnimatedOpacity(
+                    opacity: _showHint ? 1.0 : 0.0,
+                    duration: const Duration(milliseconds: 200),
+                    child: IgnorePointer(
+                      ignoring: true,
+                      child: Center(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.55),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const Icon(Icons.touch_app_rounded, color: Colors.white, size: 14),
+                              const SizedBox(width: 6),
+                              Text(l10n.beforeAfterLongPressHint, style: const TextStyle(color: Colors.white, fontSize: 12)),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+}
+
+{
+type: uploaded file
+fileName: src/utils/helpers.ts
+fullText:
+// src/utils/helpers.ts
+import {onCall, HttpsError} from "firebase-functions/v2/https";
+import {config} from "../config";
+import * as admin from "firebase-admin";
+
+const storage = admin.storage();
+
+/**
+ * Wraps an async function to be used as a Firebase Callable Function.
+ * Also includes secrets for functions that need them.
+ */
+export function onCallAsync<Req, Res>(fn: (req: any) => Promise<Res>) {
+  // Increase timeout for long-running AI tasks and set region from config
+  return onCall<Req, Res>({
+    secrets: ["GEMINI_API_KEY"],
+    region: config.firebase.location,
+    timeoutSeconds: 300,
+    memory: "1GiB",
+  }, fn as unknown as (req: any, res?: unknown) => Res);
+}
+
+/**
+ * Saves a base64 encoded image to Cloud Storage.
+ */
+export async function saveImageToStorage(filePath: string, base64Data: string, contentType: string) {
+  const bucket = storage.bucket();
+  const file = bucket.file(filePath);
+  const buffer = Buffer.from(base64Data, "base64");
+  await file.save(buffer, {
+    metadata: {
+      contentType,
+      cacheControl: "public, max-age=604800, immutable", // 7 days client/proxy cache
+    },
+  });
+}
+
+/**
+ * Saves a string to Cloud Storage.
+ */
+export async function saveTextToStorage(filePath: string, text: string, contentType = "application/json") {
+  const bucket = storage.bucket();
+  const file = bucket.file(filePath);
+  const buffer = Buffer.from(text, "utf8");
+  await file.save(buffer, {
+    metadata: {
+      contentType,
+      cacheControl: "public, max-age=604800, immutable",
+    },
+  });
+}
+
+/**
+ * Validates if a string is a valid base64 string.
+ * @param s The string to validate.
+ * @param name The name of the field for the error message.
+ */
+export function validateBase64(s: string, name: string) {
+  try {
+    Buffer.from(s, "base64");
+  } catch {
+    throw new HttpsError("invalid-argument", `'${name}' is not valid base64.`);
+  }
+}
+
+}
+
+{
+type: uploaded file
+fileName: lib/core/auth/firebase_auth_service.dart
+fullText:
+// lib/core/auth/firebase_auth_service.dart
+// -----------------------------------------------------------------------------
+// Thin wrapper around FirebaseAuth & social providers.
+// Handles authentication only; user data persistence lives in repositories.
+// -----------------------------------------------------------------------------
+
+import 'dart:convert';
+import 'dart:math';
+
+import 'packagepackage:crypto/crypto.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:logger/logger.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
+
+import 'package:coco_banana_studio/core/error/exceptions.dart';
+
+final firebaseAuthServiceProvider = Provider<FirebaseAuthService>((ref) {
+  return FirebaseAuthService();
+});
+
+class FirebaseAuthService {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final Logger _logger = Logger();
+
+  AuthenticationException _handleAuthError(FirebaseAuthException e) {
+    _logger.e('FirebaseAuthException', error: e, stackTrace: e.stackTrace);
+    switch (e.code) {
+      case 'user-not-found':
+      case 'wrong-password':
+      case 'invalid-credential':
+        return AuthenticationException('Invalid email or password. Please try again.');
+      case 'invalid-email':
+        return AuthenticationException('The email address is badly formatted.');
+      case 'email-already-in-use':
+        return AuthenticationException('This email is already registered. Please login.');
+      case 'weak-password':
+        return AuthenticationException('Password too weak (min. 6 characters).');
+      case 'account-exists-with-different-credential':
+        return AuthenticationException(
+          'An account already exists with this email using a different sign-in method.',
+        );
+      case 'operation-not-allowed':
+        return AuthenticationException('This sign-in method is disabled. Contact support.');
+      case 'user-disabled':
+        return AuthenticationException('This account has been disabled.');
+      default:
+        return AuthenticationException('An unexpected error occurred. Please try again later.');
+    }
+  }
+
+  String _generateNonce([int length = 32]) {
+    const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._';
+    final rand = Random.secure();
+    return List.generate(length, (_) => chars[rand.nextInt(chars.length)]).join();
+  }
+
+  String _sha256Of(String input) => sha256.convert(utf8.encode(input)).toString();
+
+  // Expose auth state & current user
+  Stream<User?> get authStateChanges => _auth.authStateChanges();
+  User? get currentUser => _auth.currentUser;
+
+  Future<UserCredential> signInAnonymously() => _auth.signInAnonymously();
+
+  // Email & Password ---------------------------------------------------------
+  Future<UserCredential> signUpWithEmailPassword(String email, String password) async {
+    try {
+      final current = _auth.currentUser;
+      final cred = EmailAuthProvider.credential(email: email.trim(), password: password);
+      UserCredential result;
+      if (current != null && current.isAnonymous) {
+        // Seamlessly upgrade anonymous account to permanent email account
+        result = await current.linkWithCredential(cred);
+      } else {
+        result = await _auth.createUserWithEmailAndPassword(email: email.trim(), password: password);
+      }
+      // Ensure backend sees updated provider immediately
+      await result.user?.getIdToken(true);
+      // Send verification for email/password accounts when newly created
+      if (result.additionalUserInfo?.isNewUser == true &&
+          result.user != null &&
+          !(result.user!.emailVerified)) {
+        try {
+          await result.user!.sendEmailVerification();
+        } catch (e, st) {
+          _logger.w('sendEmailVerification failed', error: e, stackTrace: st);
+        }
+      }
+      return result;
+    } on FirebaseAuthException catch (e) {
+      // If linking fails because email already exists, fall back to sign-in
+      if (e.code == 'credential-already-in-use' || e.code == 'email-already-in-use') {
+        final res = await _auth.signInWithEmailAndPassword(email: email.trim(), password: password);
+        await res.user?.getIdToken(true);
+        if (!res.user!.emailVerified) {
+          try {
+            await res.user!.sendEmailVerification();
+          } catch (e, st) {
+            _logger.w('sendEmailVerification failed', error: e, stackTrace: st);
+          }
+        }
+        return res;
+      }
+      throw _handleAuthError(e);
+    }
+  }
+
+  Future<UserCredential> signInWithEmailPassword(String email, String password) async {
+    try {
+      final current = _auth.currentUser;
+      UserCredential result;
+      if (current != null && current.isAnonymous) {
+        // Upgrade anonymous user by linking credentials when possible
+        final cred = EmailAuthProvider.credential(email: email.trim(), password: password);
+        try {
+          result = await current.linkWithCredential(cred);
+        } on FirebaseAuthException catch (e) {
+          if (e.code == 'credential-already-in-use' || e.code == 'email-already-in-use') {
+            result = await _auth.signInWithEmailAndPassword(email: email.trim(), password: password);
+          } else {
+            rethrow;
+          }
+        }
+      } else {
+        result = await _auth.signInWithEmailAndPassword(email: email.trim(), password: password);
+      }
+      await result.user?.getIdToken(true);
+      return result;
+    } on FirebaseAuthException catch (e) {
+      throw _handleAuthError(e);
+    }
+  }
+
+  // Google (recommended: provider API; works with google_sign_in v7) ---------
+  Future<UserCredential> signInWithGoogle() async {
+    try {
+      final provider = GoogleAuthProvider()
+        ..addScope('email')
+        ..addScope('profile');
+
+      final current = _auth.currentUser;
+      UserCredential result;
+
+      if (current != null && current.isAnonymous) {
+        // Upgrade anonymous → Google
+        result = await current.linkWithProvider(provider);
+      } else {
+        // Regular Google sign-in
+        result = await _auth.signInWithProvider(provider);
+      }
+
+      await result.user?.getIdToken(true);
+      return result;
+    } on FirebaseAuthException catch (e) {
+      // Handle “already in use / different cred” gracefully for anonymous upgrade
+      if (e.code == 'credential-already-in-use' ||
+          e.code == 'account-exists-with-different-credential') {
+        final provider = GoogleAuthProvider()
+          ..addScope('email')
+          ..addScope('profile');
+        final res = await _auth.signInWithProvider(provider);
+        await res.user?.getIdToken(true);
+        return res;
+      }
+      throw _handleAuthError(e);
+    } catch (e, st) {
+      _logger.e('Google Sign-In general error', error: e, stackTrace: st);
+      throw AuthenticationException('Google Sign-In error.');
+    }
+  }
+
+  // Apple -------------------------------------------------------------------
+  Future<UserCredential> signInWithApple() async {
+    try {
+      final rawNonce = _generateNonce();
+      final hashed = _sha256Of(rawNonce);
+      final appleCred = await SignInWithApple.getAppleIDCredential(
+        scopes: [AppleIDAuthorizationScopes.email, AppleIDAuthorizationScopes.fullName],
+        nonce: hashed,
+      );
+      final oauth = OAuthProvider('apple.com').credential(
+        idToken: appleCred.identityToken,
+        accessToken: appleCred.authorizationCode,
+        rawNonce: rawNonce,
+      );
+      final current = _auth.currentUser;
+      UserCredential result;
+      if (current != null && current.isAnonymous) {
+        try {
+          result = await current.linkWithCredential(oauth);
+        } on FirebaseAuthException catch (e) {
+          if (e.code == 'credential-already-in-use' || e.code == 'account-exists-with-different-credential') {
+            result = await _auth.signInWithCredential(oauth);
+          } else {
+            rethrow;
+          }
+        }
+      } else {
+        result = await _auth.signInWithCredential(oauth);
+      }
+      await result.user?.getIdToken(true);
+      return result;
+    } on SignInWithAppleAuthorizationException catch (e) {
+      if (e.code == AuthorizationErrorCode.canceled) {
+        throw AuthenticationException('Apple Sign-In canceled');
+      }
+      throw AuthenticationException('Apple Sign-In failed. Please try again.');
+    } on FirebaseAuthException catch (e) {
+      throw _handleAuthError(e);
+    } catch (e, st) {
+      _logger.e('Apple Sign-In general error', error: e, stackTrace: st);
+      throw AuthenticationException('Apple Sign-In error.');
+    }
+  }
+
+  // Sign out ----------------------------------------------------------------
+  Future<void> signOut() async {
+    await _auth.signOut();
+  }
+}
+
+}
+
+{
+type: uploaded file
+fileName: lib/features/onboarding/interactive_onboarding_screen.dart
+fullText:
+// lib/features/onboarding/interactive_onboarding_screen.dart
+import 'package:coco_banana_studio/core/router.dart';
+import 'package:coco_banana_studio/core/services/cloud_functions_service.dart';
+import 'package:coco_banana_studio/core/services/device_info_service.dart';
+import 'package:coco_banana_studio/l10n/app_localizations.dart';
+import 'package:coco_banana_studio/ui/tokens.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+// Data model for a single onboarding page
+class OnboardingPageData {
+  final String title;
+  final String description;
+  final IconData icon;
+
+  OnboardingPageData({
+    required this.title,
+    required this.description,
+    required this.icon,
+  });
+}
+
+class InteractiveOnboardingScreen extends ConsumerStatefulWidget {
+  const InteractiveOnboardingScreen({super.key});
+
+  @override
+  ConsumerState<InteractiveOnboardingScreen> createState() => _InteractiveOnboardingScreenState();
+}
+
+class _InteractiveOnboardingScreenState extends ConsumerState<InteractiveOnboardingScreen> {
+  final PageController _pageController = PageController();
+  int _currentPage = 0;
+  late final List<OnboardingPageData> _pages;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Initialize page data here to access context for l10n
+    final l10n = AppLocalizations.of(context)!;
+    _pages = [
+      OnboardingPageData(
+        title: l10n.onboardingWelcomeTitle,
+        description: l10n.onboardingWelcomeDesc,
+        icon: PhosphorIcons.sparkle(PhosphorIconsStyle.fill),
+      ),
+      OnboardingPageData(
+        title: l10n.onboardingEraserTitle,
+        description: l10n.onboardingEraserDesc,
+        icon: PhosphorIcons.magicWand(PhosphorIconsStyle.fill),
+      ),
+      OnboardingPageData(
+        title: l10n.onboardingStylesTitle,
+        description: l10n.onboardingStylesDesc,
+        icon: PhosphorIcons.paintBrush(PhosphorIconsStyle.fill),
+      ),
+      OnboardingPageData(
+        title: l10n.onboardingGenTitle,
+        description: l10n.onboardingGenDesc,
+        icon: PhosphorIcons.textT(PhosphorIconsStyle.fill),
+      ),
+    ];
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  /// Grants the initial reward, marks onboarding as complete, and navigates to the home screen.
+  Future<void> _completeOnboarding() async {
+    // Attempt to grant the initial reward only when authenticated (non-anonymous).
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user != null && !user.isAnonymous) {
+        final deviceInfoService = ref.read(deviceInfoServiceProvider);
+        final deviceId = await deviceInfoService.getDeviceIdentifier();
+        final cloudFunctions = ref.read(cloudFunctionsServiceProvider);
+        await cloudFunctions.grantInitialReward(deviceId: deviceId);
+      }
+    } catch (e) {
+      // Non-critical; continue with onboarding completion.
+      debugPrint("Failed to grant initial reward: $e");
+    }
+
+    // Mark onboarding as complete and navigate to the home screen.
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('onboarding_completed', true);
+    ref.invalidate(onboardingCompletedProvider);
+    if (mounted) {
+      context.go('/home');
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final isLastPage = _currentPage == _pages.length;
+
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(AppSpacing.md),
+          child: Column(
+            children: [
+              Expanded(
+                child: PageView.builder(
+                  controller: _pageController,
+                  onPageChanged: (page) => setState(() => _currentPage = page),
+                  itemCount: _pages.length + 1, // +1 for the final reward page
+                  itemBuilder: (context, index) {
+                    if (index < _pages.length) {
+                      return _OnboardingPage(data: _pages[index]);
+                    } else {
+                      return const _FinalOnboardingPage();
+                    }
+                  },
+                ),
+              ),
+              const SizedBox(height: AppSpacing.lg),
+              _buildBottomControls(l10n, isLastPage),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// Builds the bottom navigation controls (Skip, Dots, Next/Get Started).
+  Widget _buildBottomControls(AppLocalizations l10n, bool isLastPage) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        TextButton(
+          onPressed: _completeOnboarding,
+          child: Text(l10n.onboardingSkip),
+        ),
+        Row(
+          children: List.generate(_pages.length + 1, (index) {
+            return AnimatedContainer(
+              duration: AppDurations.fast,
+              margin: const EdgeInsets.symmetric(horizontal: 4.0),
+              height: 8.0,
+              width: _currentPage == index ? 24.0 : 8.0,
+              decoration: BoxDecoration(
+                color: _currentPage == index
+                    ? Theme.of(context).primaryColor
+                    : Colors.grey.shade300,
+                borderRadius: BorderRadius.circular(12),
+              ),
+            );
+          }),
+        ),
+        FilledButton(
+          onPressed: isLastPage
+              ? _completeOnboarding
+              : () => _pageController.nextPage(
+                    duration: AppDurations.medium,
+                    curve: Curves.easeInOut,
+                  ),
+          child: Text(isLastPage ? l10n.onboardingGetStarted : l10n.onboardingNext),
+        ),
+      ],
+    );
+  }
+}
+
+/// A widget for the content of a single feature-highlight page.
+class _OnboardingPage extends StatelessWidget {
+  final OnboardingPageData data;
+  const _OnboardingPage({required this.data});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(data.icon, size: 120, color: Theme.of(context).primaryColor),
+        const SizedBox(height: AppSpacing.xl * 2),
+        Text(
+          data.title,
+          style: Theme.of(context).textTheme.displayLarge,
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: AppSpacing.md),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
+          child: Text(
+            data.description,
+            style: Theme.of(context).textTheme.bodyLarge,
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// A special widget for the final "reward" page.
+class _FinalOnboardingPage extends StatelessWidget {
+  const _FinalOnboardingPage();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text('🍌', style: TextStyle(fontSize: 120)),
+        const SizedBox(height: AppSpacing.xl * 2),
+        Text(
+          'You\'re All Set!',
+          style: Theme.of(context).textTheme.displayLarge,
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: AppSpacing.md),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
+          child: Text(
+            'We\'ve added 1 free banana to your account to try any feature. Enjoy exploring!',
+            style: Theme.of(context).textTheme.bodyLarge,
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+}
+
+{
+type: uploaded file
+fileName: lib/domain/usecases/auth/sign_in_anonymously_use_case.dart
+fullText:
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:coco_banana_studio/domain/repositories/auth_repository.dart';
+import 'package:coco_banana_studio/data/repositories/auth_repository_impl.dart';
+
+class SignInAnonymouslyUseCase {
+  final AuthRepository _authRepository;
+
+  SignInAnonymouslyUseCase(this._authRepository);
+
+  Future<UserCredential> call() {
+    return _authRepository.signInAnonymously();
+  }
+}
+
+final signInAnonymouslyUseCaseProvider = Provider<SignInAnonymouslyUseCase>((ref) {
+  final authRepository = ref.watch(authRepositoryProvider);
+  return SignInAnonymouslyUseCase(authRepository);
+});
+
+}
+
+{
+type: uploaded file
+fileName: lib/ui/common_widgets.dart
+fullText:
+import 'package:flutter/material.dart';
+import 'package:coco_banana_studio/l10n/app_localizations.dart';
+import 'package:shimmer/shimmer.dart';
+
+class AppLoadingIndicator extends StatelessWidget {
+  final String? label;
+  const AppLoadingIndicator({super.key, this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const CircularProgressIndicator(),
+          if (label != null) ...[
+            const SizedBox(height: 12),
+            Text(label!, style: Theme.of(context).textTheme.bodyMedium),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class AppErrorState extends StatelessWidget {
+  final String title;
+  final String? message;
+  final VoidCallback? onRetry;
+  const AppErrorState({super.key, this.title = 'Something went wrong', this.message, this.onRetry});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(Icons.sentiment_dissatisfied_rounded, color: Colors.redAccent, size: 48), // Larger, more expressive icon
+            const SizedBox(height: 24), // Increased spacing
+            Text(title, style: Theme.of(context).textTheme.headlineSmall), // Larger title
+            if (message != null) ...[
+              const SizedBox(height: 12), // Increased spacing
+              Text(message!, style: Theme.of(context).textTheme.bodyLarge, textAlign: TextAlign.center), // Larger message
+            ],
+            if (onRetry != null) ...[
+              const SizedBox(height: 24), // Increased spacing
+              FilledButton.icon(onPressed: onRetry, icon: const Icon(Icons.refresh_rounded), label: Text(AppLocalizations.of(context)!.retryCta)),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class AppEmptyState extends StatelessWidget {
+  final String title;
+  final String? subtitle;
+  final Widget? action;
+  const AppEmptyState({super.key, required this.title, this.subtitle, this.action});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(Icons.sentiment_neutral_rounded, size: 48, color: Colors.grey), // Larger, more expressive icon
+            const SizedBox(height: 24), // Increased spacing
+            Text(title, style: Theme.of(context).textTheme.headlineSmall), // Larger title
+            if (subtitle != null) ...[
+              const SizedBox(height: 12), // Increased spacing
+              Text(subtitle!, style: Theme.of(context).textTheme.bodyLarge, textAlign: TextAlign.center), // Larger subtitle
+            ],
+            if (action != null) ...[
+              const SizedBox(height: 24), // Increased spacing
+              action!,
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SkeletonBox extends StatelessWidget {
+  final double height;
+  final double? width;
+  final BorderRadiusGeometry borderRadius;
+  const SkeletonBox({super.key, required this.height, this.width, this.borderRadius = const BorderRadius.all(Radius.circular(12))});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: height,
+      width: width,
+      decoration: BoxDecoration(
+        color: Colors.grey.shade200,
+        borderRadius: borderRadius,
+      ),
+    );
+  }
+}
+
+class ShimmerSkeleton extends StatelessWidget {
+  final double height;
+  final double? width;
+  final BorderRadiusGeometry borderRadius;
+  const ShimmerSkeleton({super.key, required this.height, this.width, this.borderRadius = const BorderRadius.all(Radius.circular(12))});
+
+  @override
+  Widget build(BuildContext context) {
+    return Shimmer.fromColors(
+      baseColor: Colors.grey.shade200,
+      highlightColor: Colors.grey.shade100,
+      child: SkeletonBox(height: height, width: width, borderRadius: borderRadius),
+    );
+  }
+}
+
+}
+
+{
+type: uploaded file
+fileName: lib/features/auth/login_view_model.dart
+fullText:
+// lib/features/auth/login_view_model.dart
+import 'package:coco_banana_studio/core/services/cloud_functions_service.dart';
+import 'package:coco_banana_studio/l10n/app_localizations.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'package:coco_banana_studio/domain/usecases/auth/sign_in_with_email_password_use_case.dart';
+import 'package:coco_banana_studio/domain/usecases/auth/sign_in_with_google_use_case.dart';
+import 'package:coco_banana_studio/domain/usecases/auth/sign_in_with_apple_use_case.dart';
+import 'package:coco_banana_studio/domain/usecases/auth/sign_up_with_email_password_use_case.dart';
+import 'package:coco_banana_studio/core/services/unified_error_handler_service.dart';
+import 'package:coco_banana_studio/domain/usecases/auth/send_password_reset_email_use_case.dart';
+
+final loginViewModelProvider = StateNotifierProvider<LoginViewModel, bool>((ref) {
+  final emailUseCase = ref.read(signInWithEmailPasswordUseCaseProvider);
+  final googleUseCase = ref.read(signInWithGoogleUseCaseProvider);
+  final appleUseCase = ref.read(signInWithAppleUseCaseProvider);
+  final signUpUseCase = ref.read(signUpWithEmailPasswordUseCaseProvider);
+  final resetUseCase = ref.read(sendPasswordResetEmailUseCaseProvider);
+  final errorHandler = ref.read(unifiedErrorHandlerServiceProvider);
+  final cfs = ref.read(cloudFunctionsServiceProvider);
+  return LoginViewModel(emailUseCase, googleUseCase, appleUseCase, signUpUseCase, resetUseCase, errorHandler, cfs);
+});
+
+class LoginViewModel extends StateNotifier<bool> {
+  LoginViewModel(this._emailUseCase, this._googleUseCase, this._appleUseCase, this._signUpUseCase, this._resetUseCase, this._errorHandler, this._cfs) : super(false);
+  final SignInWithEmailPasswordUseCase _emailUseCase;
+  final SignInWithGoogleUseCase _googleUseCase;
+  final SignInWithAppleUseCase _appleUseCase;
+  final SignUpWithEmailPasswordUseCase _signUpUseCase;
+  final SendPasswordResetEmailUseCase _resetUseCase;
+  final UnifiedErrorHandlerService _errorHandler;
+  final CloudFunctionsService _cfs;
+
+  Future<void> submitEmailPassword(BuildContext context, String email, String password) async {
+    state = true;
+    try {
+      await _emailUseCase(email, password);
+    } catch (e, st) {
+      if (context.mounted) {
+        _errorHandler.showError(context, e, stackTrace: st);
+      }
+    } finally {
+      state = false;
+    }
+  }
+
+  Future<void> signInWithGoogle(BuildContext context) async {
+    state = true;
+    try {
+      await _googleUseCase();
+      await _cfs.grantSignUpReward();
+    } catch (e, st) {
+      if (context.mounted) {
+        _errorHandler.showError(context, e, stackTrace: st);
+      }
+    } finally {
+      state = false;
+    }
+  }
+
+  Future<void> signInWithApple(BuildContext context) async {
+    state = true;
+    try {
+      await _appleUseCase();
+      await _cfs.grantSignUpReward();
+    } catch (e, st) {
+      if (context.mounted) {
+        _errorHandler.showError(context, e, stackTrace: st);
+      }
+    } finally {
+      state = false;
+    }
+  }
+
+S
+
+I've put this code into an `index.html` file for you. You can use this file as the homepage for your GitHub Pages site.
+
+Just remember to replace the placeholder links (like `[YOUR_APP_STORE_LINK_HERE]`) and the image `src` paths if you place your images in a different folder (e.g., `/assets/IMG_9752.jpg`).
+
+Let me know if you'd like any adjustments!
